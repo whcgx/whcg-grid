@@ -1,7 +1,7 @@
 # &lt;whcg-grid&gt;
 
 ```html
-<whcg-grid griddatastr="{{mergedjson}}"></whcg-grid>
+<whcg-grid griddatastr="{{whcgCostsJson}}"></whcg-grid>
 ```
 
 ## Getting started 
