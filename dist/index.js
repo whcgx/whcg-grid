@@ -8,7 +8,7 @@ require('@vaadin/vaadin-grid/vaadin-grid-column.js');
 require('@polymer/iron-ajax/iron-ajax.js');
 
 /**
- * `WhcgNumberFieldBox`
+ * `WhcgGrid`
  * 
  * @customElement
  * @polymer
@@ -28,30 +28,28 @@ class WhcgGrid extends polymerElement_js.PolymerElement {
     
           <vaadin-grid-column width="60px" flex-grow="0">
             <template class="header">Kostnadsslag</template>
-            <template>[[item.label]]</template>
+            <template>[[item.object]]</template>
             <!-- If necessary, the footer could be set using <template class="footer"> -->
             <template class="footer">#</template>
           </vaadin-grid-column>
     
           <vaadin-grid-column>
             <template class="header">Year 1</template>
-            <template>[[item.year1]]</template>
+            <template>[[item.data.yearlyamounts.dataset.1]]</template>
             <template class="footer">First Name</template>
           </vaadin-grid-column>
     
           <vaadin-grid-column>
             <template class="header">Year 2</template>
-            <template>[[item.year2]]</template>
+            <template>[[item.data.yearlyamounts.dataset.2]]</template>
             <template class="footer">Last Name</template>
           </vaadin-grid-column>
 
           <vaadin-grid-column>
             <template class="header">Year 3</template>
-            <template>[[item.year3]]</template>
+            <template>[[item.data.yearlyamounts.dataset.3]]</template>
             <template class="footer">Last Name</template>
           </vaadin-grid-column>
-    
-         
     
         </vaadin-grid>
     `
@@ -98,14 +96,17 @@ constructor() {
                 type: String,
                 notify: false,
                 readOnly: false,
-                observer: '_parseJson'
+                observer: '_griddatastrChanged'
             },
         }
     };
 
-    _parseJson() {
+    _griddatastrChanged() {
         console.log('grid');
+        console.log(this.griddatastr);
         this.griddataobj = JSON.parse(this.griddatastr);
+        console.log('grid');
+        console.log(this.griddataobj);
     }
 }
 
