@@ -99,10 +99,10 @@ constructor() {
 
     _griddatastrChanged() {
         console.log('grid');
-        console.log(this.griddatastr)
+        console.log(this.griddatastr);
         this.griddataobj = JSON.parse(this.griddatastr);
         console.log('grid');
-        console.log(this.griddataobj)
+        console.log(this.griddataobj);
     }
 }
 
